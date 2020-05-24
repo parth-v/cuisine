@@ -1,19 +1,18 @@
 import React from 'react';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
+import BusinessDetail from './BusinessDetail';
 
 const BusinessList = ({ title, businesses }) => {
 	return (
-		<View>
+		<View style={styles.parentView} >
 			<Text style = { styles.titleStyle }>{title}</Text>
-			<Text>
-				No of business: {businesses.length}
-			</Text>
 			<FlatList
+				showsHorizontalScrollIndicator={false}
 				horizontal
-				keyExtractor = {business => business.id}
+				keyExtractor = { business => business.id }
 				data = { businesses }
 				renderItem = { ({ item }) => {
-					return <Text>{ item.name }</Text>;
+					return <BusinessDetail business = { item } />;
 				}}
 			/>
 		</View>
@@ -23,7 +22,12 @@ const BusinessList = ({ title, businesses }) => {
 const styles = StyleSheet.create({
 	titleStyle: {
 		fontSize: 20,
-		fontWeight: 'bold'
+		fontWeight: 'bold',
+		marginLeft: 15,
+		marginBottom: 5
+	},
+	parentView: {
+		marginBottom: 15
 	}
 });
 
