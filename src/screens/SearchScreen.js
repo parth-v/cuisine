@@ -1,30 +1,22 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
-import yelp from '../api/yelp';
+import useBusinesses from '../hooks/useBusinesses';
 
 const SearchScreen = () => {
 	const [query, setQuery] = useState('');
-	const [businesses, setBusinesses] = useState([]);
+	const [ searchApi, errorMessage, businesses ] = useBusinesses();
 
-	const searchApi = async () => {
-		const response = await yelp.get('/search', {
-			params: {
-				limit: 50,
-				term: query,
-				location: 'san jose'
-			} 
-		});
-		setBusinesses(response.data.businesses);
-	}
 	return (
 		<View>
 			<SearchBar 
 				query = {query} 
 				onQueryChange = {setQuery} 
-				onQuerySubmit = {searchApi}
+				onQuerySubmit = { () => searchApi(query) }
 			/>
-			<Text>Search Screen</Text>
+			{
+				errorMessage ? <Text>{errorMessage}</Text> : null
+			}
 			<Text>We have found {businesses.length} businesses!</Text>
 		</View>
 	);
