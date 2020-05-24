@@ -14,7 +14,7 @@ const SearchBar = ({ query, onQueryChange, onQuerySubmit }) => {
 				onChangeText = {onQueryChange}
 				onEndEditing = {onQuerySubmit}
 			/>
-			<FontAwesome style={styles.iconStyle} name="search" color="green" />
+			<FontAwesome style={styles.iconStyle} name="search" />
 		</View>
 	);
 };
