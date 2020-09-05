@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "food",
-    "slug": "food",
+    "name": "Cuisine",
+    "slug": "cuisine",
     "platforms": [
       "ios",
       "android",
@@ -11,7 +11,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,7 +22,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mycomp.cuisine",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.mycomp.cuisine",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }

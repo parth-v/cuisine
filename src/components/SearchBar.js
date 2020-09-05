@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, View, StyleSheet } from 'react-native';
+import { Text, TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 const SearchBar = ({ query, onQueryChange, onQuerySubmit }) => {
@@ -9,12 +9,14 @@ const SearchBar = ({ query, onQueryChange, onQuerySubmit }) => {
 				autoCorrect = {false}
 				autoCapitalize = "none"
 				style = {styles.inputStyle} 
-				placeholder = "Search"	
+				placeholder = "Search Restaurants"	
 				value = { query }
 				onChangeText = {onQueryChange}
 				onEndEditing = {onQuerySubmit}
 			/>
-			<FontAwesome style={styles.iconStyle} name="search" />
+			<TouchableOpacity onPress = {onQuerySubmit} >
+				<FontAwesome style={styles.iconStyle} name="search" />
+			</TouchableOpacity>
 		</View>
 	);
 };

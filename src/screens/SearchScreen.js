@@ -15,7 +15,7 @@ const SearchScreen = () => {
 	};
 
 	return (
-		<>
+		<View style = {styles.container}>
 			<SearchBar 
 				query = {query} 
 				onQueryChange = {setQuery} 
@@ -42,10 +42,15 @@ const SearchScreen = () => {
 					businesses = { filterBusinessByPrice('$$$$')} 
 				/>
 			</ScrollView>
-		</>
+		</View>
 	);
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	container: {
+		flex:1,
+		backgroundColor: '#efd3d8',
+	}
+});
 
 export default SearchScreen;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
 import yelp from '../api/yelp';
+import { AntDesign } from '@expo/vector-icons';
 
 const BusinessDisplayScreen = ({ navigation }) => {
 	const [business, setBusiness] = useState(null);
@@ -22,6 +23,9 @@ const BusinessDisplayScreen = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.name} >{business.name}</Text>
+			<Text style={styles.bold} >
+				{business.rating} <AntDesign name="staro" size={20} color="black" />  & Total Reviews: {business.review_count}</Text>
+			<Text style={styles.details} ><Text style={styles.bold}>Address:</Text> {business.location.display_address}</Text>
 			<FlatList
 				data={business.photos}
 				showsVerticalScrollIndicator={false}
@@ -37,18 +41,29 @@ const BusinessDisplayScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
+		backgroundColor: '#efd3d8',
 		flex: 1 
 	},
 	name:{
 		fontWeight: 'bold',
-		fontSize: 18,
+		textAlign: 'center',
+		fontSize: 24,
 		margin: 5
 	},
+	bold:{
+		fontWeight: 'bold'
+	},
+	details:{
+		fontWeight: '200',
+		textAlign: 'center',
+		fontSize: 15,
+		margin: 3
+	},
 	image: {
-		height:200,
-		width:300,
-		margin: 5,
-		borderRadius: 5	
+		height: 180,
+		width: 270,
+		margin: 8,
+		borderRadius: 5
 	}
 });
 
