@@ -1,3 +1,3 @@
 # cuisine
 
-A food search app to search for any cuisine and it finds relevant restaurant where you can satisfy your hunger!
+A react native search app to find any food/restaurant using Yelp API. Go on and satisfy your hunger!
